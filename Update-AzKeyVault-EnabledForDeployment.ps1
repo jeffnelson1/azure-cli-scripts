@@ -8,7 +8,7 @@ $subs = @( "subid"
         az account set -s $sub
         az account show -o table
 
-        $keyVaults = az keyvault list --query "[?starts_with(name, 'kvpd-')] || [?starts_with(name, 'kvdt-')] || [?starts_with(name, 'kvdp-')] || [?starts_with(name, 'kvss-')]" | ConvertFrom-Json
+        $keyVaults = az keyvault list --query "[?starts_with(name, 'kvd-')] || [?starts_with(name, 'kvp-')] || [?starts_with(name, 'kvs-')] || [?starts_with(name, 'kvt-')]" | ConvertFrom-Json
 
         foreach ($keyVault in $keyVaults) {
             Write-Output "Updating $($keyVault.name) in $($keyVault.resourceGroup)"
